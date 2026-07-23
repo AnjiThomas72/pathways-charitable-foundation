@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Pathways Charitable Foundation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy:#123D7A; --teal:#0D8A86; --gold:#E8B323; --green:#5F9E43; --page-bg:#F4F9FC; --text:#2c3e50; --text-light:#5a6c7d; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Lato',sans-serif; color:var(--text); line-height:1.7; background:var(--page-bg); }
+        a { text-decoration:none; color:inherit; }
+        h1,h2,h3,h4 { font-family:'Cormorant Garamond',serif; }
+        .header { background:#fff; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(18,61,122,0.08); position:sticky; top:0; z-index:100; }
+        .header .logo-text { font-family:'Cormorant Garamond',serif; font-size:1.3em; font-weight:700; color:var(--navy); }
+        .nav-links { display:flex; align-items:center; gap:28px; }
+        .nav-links a { color:var(--text-light); font-size:0.9em; font-weight:400; }
+        .nav-links a:hover { color:var(--teal); }
+        .nav-btn { padding:14px 28px; background:var(--navy); color:#fff; border-radius:8px; font-weight:600; font-size:0.88em; border:none; transition:all 0.3s ease; }
+        .nav-links a.nav-btn { color:#fff; }
+        .nav-btn:hover, .nav-links a.nav-btn:hover { background:var(--teal); color:#fff; }
+        .page-hero { background:var(--navy); color:#fff; text-align:center; padding:80px 24px; }
+        .page-hero h1 { font-size:2.6em; font-weight:700; }
+        .section { padding:60px 24px; max-width:850px; margin:0 auto; }
+        .contact-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:40px; }
+        @media (max-width:768px) { .contact-grid { grid-template-columns:1fr; } }
+        .contact-info { padding:36px; background:#fff; border-radius:16px; box-shadow:0 2px 16px rgba(0,0,0,0.04); }
+        .contact-info h3 { color:var(--navy); margin-bottom:24px; font-size:1.3em; }
+        .info-item { margin-bottom:20px; }
+        .info-item .label { font-weight:600; color:var(--teal); font-size:0.82em; text-transform:uppercase; letter-spacing:0.5px; }
+        .info-item .value { color:var(--text); font-size:1em; margin-top:3px; }
+        .contact-form { padding:36px; background:#fff; border-radius:16px; box-shadow:0 2px 16px rgba(0,0,0,0.04); }
+        .contact-form h3 { color:var(--navy); margin-bottom:24px; font-size:1.3em; }
+        .form-group { margin-bottom:18px; }
+        .form-group label { display:block; font-weight:600; margin-bottom:6px; color:var(--navy); font-size:0.9em; }
+        .form-group input,.form-group select,.form-group textarea { width:100%; padding:13px 16px; border:1px solid #e0e0e0; border-radius:10px; font-size:1em; font-family:inherit; background:#fafbfc; }
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color:var(--teal); outline:none; box-shadow:0 0 0 3px rgba(13,138,134,0.08); }
+        .form-group textarea { min-height:120px; resize:vertical; }
+        .btn-submit { padding:14px 32px; background:var(--navy); color:#fff; border:none; border-radius:10px; font-weight:700; font-size:1em; cursor:pointer; width:100%; transition:background 0.2s; }
+        .btn-submit:hover { background:var(--teal); }
+        .footer { background:var(--navy); color:rgba(255,255,255,0.7); padding:40px 24px; text-align:center; font-size:0.85em; }
+        .footer a { color:var(--gold); }
+        @media (max-width:768px) { .header { padding:14px 16px; flex-wrap:wrap; gap:10px; } .nav-links { gap:12px; flex-wrap:wrap; font-size:0.85em; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><a href="index.html" style="display:flex;align-items:center;gap:10px;"><img src="static/logo.png" alt="Pathways Charitable Foundation Logo" style="height:40px;width:auto;"><span class="logo-text">Pathways Charitable Foundation</span></a></div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="how-we-help.html">How We Help</a>
+            <a href="get-help.html">Get Help</a>
+            <a href="give-hope.html">Give Hope</a>
+            <a href="contact.html">Contact</a>
+            <a href="partner.html" class="nav-btn">Become a Partner</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Let's Connect</h1>
+    </section>
+
+    <section class="section">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Reach Out</h3>
+                <div class="info-item">
+                    <div class="label">Founder</div>
+                    <div class="value">Angela Thomas</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Phone</div>
+                    <div class="value">📞 214-983-6233</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Email</div>
+                    <div class="value">✉️ info@pathwayscreateshope.org</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Website</div>
+                    <div class="value">PathwaysCreatesHope.org</div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required placeholder="you@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" placeholder="214-555-1234">
+                    </div>
+                    <div class="form-group">
+                        <label>Reason for Contacting</label>
+                        <select name="reason">
+                            <option value="help">I need help</option>
+                            <option value="donate">I want to donate</option>
+                            <option value="partner">I want to partner</option>
+                            <option value="volunteer">I want to volunteer</option>
+                            <option value="general">General question</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="How can we help?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Pathways Charitable Foundation &middot; Every Gift Creates Another Pathway. &middot; <a href="index.html">PathwaysCreatesHope.org</a></p>
+        <p style="margin-top:12px;">Availability, eligibility, benefits, and savings may vary.</p>
+    </footer>
+</body>
+</html>

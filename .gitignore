@@ -1,0 +1,9 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+backups/
+
+# Ignore session notes
+SESSION_README.md
