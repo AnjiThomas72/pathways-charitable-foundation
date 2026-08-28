@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church &amp; Faith-Based Partnerships - Pathways Charitable Foundation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy:#123D7A; --teal:#0D8A86; --gold:#E8B323; --green:#5F9E43; --warm-white:#FAF9F6; --soft-gray:#F3F5F7; --text:#2c3e50; --text-light:#5a6c7d; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Lato',sans-serif; color:var(--text); line-height:1.7; background:var(--warm-white); }
+        a { text-decoration:none; color:inherit; }
+        h1,h2,h3,h4 { font-family:'Cormorant Garamond',serif; }
+        .header { background:#fff; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(18,61,122,0.08); position:sticky; top:0; z-index:100; }
+        .header .logo-text { font-family:'Cormorant Garamond',serif; font-size:1.3em; font-weight:700; color:var(--navy); }
+        .nav-links { display:flex; align-items:center; gap:28px; }
+        .nav-links a { color:var(--text-light); font-size:0.9em; font-weight:400; }
+        .nav-links a:hover { color:var(--teal); }
+        .nav-btn { padding:10px 22px; background:var(--navy); color:#fff; border-radius:6px; font-weight:600; font-size:0.88em; }
+        .nav-links a.nav-btn { color:#fff; }
+        .nav-btn:hover, .nav-links a.nav-btn:hover { background:var(--teal); color:#fff; }
+
+        /* Hero */
+        .page-hero { background:var(--navy); color:#fff; text-align:center; padding:100px 24px 80px; }
+        .page-hero h1 { font-size:2.8em; font-weight:700; margin-bottom:20px; line-height:1.2; }
+        .page-hero p { font-size:1.1em; max-width:750px; margin:0 auto; opacity:0.9; line-height:1.7; }
+        .page-hero .hero-btn { display:inline-block; margin-top:32px; padding:16px 40px; background:var(--gold); color:var(--navy); border-radius:8px; font-weight:700; font-size:1.05em; box-shadow:0 2px 12px rgba(232,179,35,0.3); }
+        .page-hero .hero-btn:hover { background:#d4a017; }
+
+        /* Sections */
+        .section { padding:80px 24px; max-width:950px; margin:0 auto; }
+        .section-gray { background:var(--soft-gray); }
+        .section-navy { background:var(--navy); color:#fff; padding:80px 24px; }
+        .section-navy .inner { max-width:950px; margin:0 auto; }
+        .section h2 { font-size:2em; color:var(--navy); margin-bottom:16px; text-align:center; font-weight:600; }
+        .section-navy h2 { color:#fff; text-align:center; font-size:2em; margin-bottom:16px; }
+        .section h3 { font-size:1.3em; color:var(--navy); margin-bottom:10px; }
+        .section-navy h3 { color:var(--gold); }
+        .section .subtitle { text-align:center; max-width:750px; margin:0 auto 40px; color:var(--text-light); font-size:1.02em; }
+        .section-navy .subtitle { color:rgba(255,255,255,0.85); text-align:center; max-width:750px; margin:0 auto 40px; }
+
+        /* Purpose intro */
+        .purpose-section { text-align:center; }
+        .purpose-section p { max-width:700px; margin:0 auto 20px; color:var(--text-light); font-size:1.02em; }
+        .purpose-section .emphasis { font-weight:600; color:var(--navy); font-size:1.05em; }
+
+        /* Benefit badges */
+        .benefit-row { display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-top:32px; }
+        .benefit-badge { background:#fff; border-radius:16px; padding:28px 24px; text-align:center; box-shadow:0 2px 16px rgba(0,0,0,0.04); border-top:3px solid var(--gold); }
+        .benefit-badge h3 { color:var(--navy); margin-bottom:8px; font-size:1.15em; }
+        .benefit-badge p { color:var(--text-light); font-size:0.92em; }
+
+        /* Steps */
+        .steps-grid { display:grid; gap:32px; margin-top:40px; }
+        .step { display:grid; grid-template-columns:60px 1fr; gap:20px; align-items:start; }
+        .step-number { width:50px; height:50px; background:var(--gold); color:var(--navy); font-family:'Cormorant Garamond',serif; font-size:1.5em; font-weight:700; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+        .step h3 { color:var(--navy); font-size:1.15em; margin-bottom:6px; }
+        .step p { color:var(--text-light); font-size:0.95em; }
+        .step ul { list-style:none; padding:0; margin-top:8px; }
+        .step ul li { color:var(--text-light); font-size:0.93em; padding:4px 0; }
+        .step ul li::before { content:"• "; color:var(--gold); font-weight:700; }
+
+        /* Three Impacts */
+        .impact-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; margin-top:40px; }
+        .impact-card { background:rgba(255,255,255,0.06); border-radius:16px; padding:36px 28px; text-align:center; border:1px solid rgba(255,255,255,0.1); }
+        .impact-card h3 { color:var(--gold); font-size:1.3em; margin-bottom:8px; }
+        .impact-card .tagline { color:var(--teal); font-weight:600; font-size:0.9em; margin-bottom:12px; }
+        .impact-card p { color:rgba(255,255,255,0.85); font-size:0.93em; }
+
+        /* Wellness Day */
+        .wellness-section { background:var(--soft-gray); padding:80px 24px; }
+        .wellness-section .inner { max-width:950px; margin:0 auto; }
+        .wellness-section h2 { font-size:2em; color:var(--navy); margin-bottom:8px; text-align:center; }
+        .wellness-section h3 { color:var(--teal); text-align:center; margin-bottom:24px; font-size:1.2em; }
+        .wellness-section p { max-width:700px; margin:0 auto 20px; text-align:center; color:var(--text-light); }
+        .wellness-list { max-width:600px; margin:28px auto; list-style:none; padding:0; }
+        .wellness-list li { padding:10px 0; font-size:0.95em; color:var(--text); border-bottom:1px solid rgba(0,0,0,0.05); }
+        .wellness-list li::before { content:"✓ "; color:var(--green); font-weight:700; }
+
+        /* Healthcare connection */
+        .healthcare-box { background:#fff; border-radius:16px; padding:48px 40px; box-shadow:0 2px 20px rgba(0,0,0,0.04); margin-top:40px; border-left:4px solid var(--teal); }
+        .healthcare-box h3 { color:var(--teal); margin-bottom:12px; }
+        .healthcare-box p { color:var(--text-light); font-size:0.95em; margin-bottom:12px; }
+        .healthcare-box .note { font-style:italic; color:var(--text-light); font-size:0.88em; border-top:1px solid var(--soft-gray); padding-top:16px; margin-top:20px; }
+
+        /* Help families CTA */
+        .help-section { text-align:center; }
+        .help-section p { max-width:700px; margin:0 auto 20px; color:var(--text-light); }
+        .help-section .highlight { font-family:'Cormorant Garamond',serif; font-size:1.4em; color:var(--navy); font-weight:600; font-style:italic; margin-top:28px; }
+
+        /* Final CTA */
+        .final-cta { background:var(--navy); color:#fff; padding:80px 24px; text-align:center; }
+        .final-cta .inner { max-width:750px; margin:0 auto; }
+        .final-cta h2 { color:#fff; font-size:2.2em; margin-bottom:24px; }
+        .final-cta .creates-list { font-family:'Cormorant Garamond',serif; font-size:1.3em; line-height:2.2; opacity:0.9; margin-bottom:20px; }
+        .final-cta .creates-list .hope { color:var(--teal); font-weight:700; }
+        .final-cta h3 { color:var(--gold); font-size:1.4em; margin-bottom:16px; }
+        .final-cta p { color:rgba(255,255,255,0.85); font-size:1em; margin-bottom:28px; }
+        .final-cta .btn-gold { display:inline-block; padding:16px 40px; background:var(--gold); color:var(--navy); border-radius:8px; font-weight:700; font-size:1.05em; box-shadow:0 2px 12px rgba(232,179,35,0.3); }
+        .final-cta .btn-gold:hover { background:#d4a017; }
+
+        /* Footer */
+        .footer { background:var(--navy); color:rgba(255,255,255,0.7); padding:40px 24px; text-align:center; font-size:0.85em; border-top:1px solid rgba(255,255,255,0.1); }
+        .footer a { color:var(--gold); }
+        .footer .tagline { font-style:italic; margin-top:8px; font-size:0.9em; }
+
+        /* Responsive */
+        @media (max-width:768px) {
+            .header { padding:14px 16px; flex-wrap:wrap; gap:10px; }
+            .nav-links { gap:12px; flex-wrap:wrap; font-size:0.85em; }
+            .page-hero h1 { font-size:2em; }
+            .page-hero { padding:60px 16px 50px; }
+            .section { padding:50px 16px; }
+            .benefit-row { grid-template-columns:1fr; }
+            .impact-grid { grid-template-columns:1fr; }
+            .step { grid-template-columns:50px 1fr; gap:14px; }
+            .healthcare-box { padding:28px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><a href="index.html" style="display:flex;align-items:center;gap:10px;"><img src="static/logo.png" alt="Pathways Charitable Foundation Logo" style="height:40px;width:auto;"><span class="logo-text">Pathways Charitable Foundation</span></a></div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="how-we-help.html">How We Help</a>
+            <a href="churches.html">Churches</a>
+            <a href="get-help.html">Get Help</a>
+            <a href="give-hope.html">Give Hope</a>
+            <a href="contact.html">Contact</a>
+            <a href="partner.html" class="nav-btn">Become a Partner</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <h1>Church &amp; Faith-Based Partnerships</h1>
+        <p><strong>Stronger Churches. Healthier Families. Greater Community Impact.</strong></p>
+        <p style="margin-top:20px;">Pathways Charitable Foundation partners with churches and faith-based organizations to create sustainable pathways to healthcare, wellness resources, and support for families&mdash;while helping churches raise funds to further their own mission.</p>
+        <a href="contact.html" class="hero-btn">Become a Church Partner</a>
+    </section>
+
+    <!-- More Than a Fundraiser -->
+    <section class="section purpose-section">
+        <h2>More Than a Fundraiser</h2>
+        <h3 style="text-align:center; color:var(--teal); margin-bottom:24px;">A Partnership With Purpose.</h3>
+        <p>Churches have always been a place where families turn during life&rsquo;s most important moments.</p>
+        <p>Pathways Charitable Foundation believes churches should have access to resources that help them respond when their members and surrounding communities need support.</p>
+        <p>Our Church &amp; Faith-Based Partnership creates an opportunity for your church to raise funds while connecting families with valuable healthcare and wellness resources.</p>
+        <p class="emphasis">And the impact goes even further.</p>
+        <p>Funds generated through Pathways&rsquo; participation help us continue giving back through donated healthcare memberships, health and wellness scans, resource navigation, education, and assistance for families in need.</p>
+
+        <div class="benefit-row">
+            <div class="benefit-badge">
+                <h3>⛪ The Church Benefits.</h3>
+                <p>Raise funds and expand your ministry's outreach into healthcare and wellness.</p>
+            </div>
+            <div class="benefit-badge">
+                <h3>👨‍👩‍👧 The Family Benefits.</h3>
+                <p>Members gain access to healthcare resources and wellness education.</p>
+            </div>
+            <div class="benefit-badge">
+                <h3>💛 Another Family Gets Help.</h3>
+                <p>Resources generated help Pathways serve families in need.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How The Partnership Works -->
+    <section class="section section-gray" style="max-width:100%; padding:80px 24px;">
+        <div style="max-width:950px; margin:0 auto;">
+            <h2>How The Partnership Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3>Your Church Partners With Pathways</h3>
+                        <p>We work with your church leadership to establish a community health and fundraising campaign designed for your congregation.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>Families Get Connected</h3>
+                        <p>Church members, families, friends, and community supporters are introduced to participating healthcare membership options and available wellness resources.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>Your Church Raises Funds</h3>
+                        <p>Qualifying participation through your church&rsquo;s campaign generates fundraising support for your church.</p>
+                        <p style="margin-top:8px;">Funds can help support ministry programs, outreach efforts, community initiatives, and other church priorities.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h3>Pathways Gives Back</h3>
+                        <p>The impact continues beyond the fundraiser. Pathways uses resources generated through our programs and partnerships to help provide:</p>
+                        <ul>
+                            <li>Donated healthcare memberships for families in need</li>
+                            <li>Health and wellness scans</li>
+                            <li>Resource navigation</li>
+                            <li>Education and community outreach</li>
+                            <li>Connections to additional resources and assistance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div>
+                        <h3>Together, We Create Another Pathway</h3>
+                        <p>Every participating church becomes part of a larger mission to strengthen families and expand access to resources in communities that need them.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Levels of Impact -->
+    <section class="section-navy">
+        <div class="inner">
+            <h2>One Partnership. Three Levels of Impact.</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h3>⛪ Your Church</h3>
+                    <p class="tagline">Raise Funds. Expand Outreach. Strengthen Ministry.</p>
+                    <p>Create an additional fundraising opportunity while bringing meaningful health and wellness resources directly to your congregation and surrounding community.</p>
+                </div>
+                <div class="impact-card">
+                    <h3>👨‍👩‍👧 Your Families</h3>
+                    <p class="tagline">Access. Education. Connection.</p>
+                    <p>Participating families can learn about healthcare membership options and resources that may help them better access everyday healthcare services.</p>
+                </div>
+                <div class="impact-card">
+                    <h3>💛 Families in Need</h3>
+                    <p class="tagline">Hope. Resources. Another Pathway.</p>
+                    <p>Pathways Charitable Foundation can use resources generated through its partnerships to provide donated memberships, health scans, resource navigation, and other assistance to families facing a Moment in Life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Health & Wellness Days -->
+    <section class="wellness-section">
+        <div class="inner">
+            <h2>Community Health &amp; Wellness Days</h2>
+            <h3>Bring Pathways Into Your Church.</h3>
+            <p>Participating churches may have opportunities to host a <strong>Pathways Community Health &amp; Wellness Day</strong> for their congregation and surrounding community.</p>
+            <p>Depending on the event, activities may include:</p>
+            <ul class="wellness-list">
+                <li>Health and wellness scans</li>
+                <li>Healthcare resource education</li>
+                <li>Information about available healthcare membership options</li>
+                <li>Community resource navigation</li>
+                <li>Opportunities to identify families who may need additional assistance</li>
+                <li>Connections to participating community resources</li>
+            </ul>
+            <p>These events can help churches turn their facilities into a point of connection where families can learn, ask questions, discover resources, and find their next pathway.</p>
+        </div>
+    </section>
+
+    <!-- The Healthcare Connection -->
+    <section class="section">
+        <h2>The Healthcare Connection</h2>
+        <p class="subtitle">Helping Families Find Another Way to Access Care.</p>
+        <div class="healthcare-box">
+            <h3>KonnectMD</h3>
+            <p>As part of the Church &amp; Faith-Based Partnership, Pathways may connect participating families with healthcare membership resources available through <strong>KonnectMD</strong>.</p>
+            <p>KonnectMD offers healthcare membership options designed to help individuals and families access participating healthcare services and resources.</p>
+            <p>Families decide for themselves whether a membership is appropriate for their needs.</p>
+            <p class="note">There is never an obligation to enroll in order to participate in Pathways&rsquo; community outreach or request resource assistance.</p>
+        </div>
+    </section>
+
+    <!-- Help Us Create Pathways -->
+    <section class="section section-gray help-section" style="max-width:100%; padding:80px 24px;">
+        <div style="max-width:750px; margin:0 auto;">
+            <h2>Help Us Create Pathways for Families in Need</h2>
+            <p>Some families simply need someone to show them where to turn.</p>
+            <p>Through the support created by our partnerships, Pathways works to extend resources to families who may otherwise go without.</p>
+            <p>That may include helping provide a healthcare membership, offering a health and wellness scan, connecting someone with an available community resource, or simply helping a family understand their options.</p>
+            <p class="highlight">Because sometimes one connection can change someone&rsquo;s entire path.</p>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="inner">
+            <h2>Your Church Can Become That Connection.</h2>
+            <p>Join Pathways Charitable Foundation in creating a partnership where fundraising creates more than dollars.</p>
+            <div class="creates-list">
+                It creates access.<br>
+                It creates resources.<br>
+                It creates <span class="hope">hope</span>.<br>
+                It creates another pathway.
+            </div>
+            <h3>Ready to Learn More?</h3>
+            <p>Schedule a brief conversation with Pathways Charitable Foundation to learn how the Church &amp; Faith-Based Partnership can work for your congregation.</p>
+            <a href="contact.html" class="btn-gold">Become a Church Partner</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>Pathways Charitable Foundation</strong></p>
+        <p class="tagline">Every Gift Creates Another Pathway.</p>
+        <p style="margin-top:10px;"><a href="index.html">PathwaysCreatesHope.org</a></p>
+        <p style="margin-top:12px; font-size:0.8em; opacity:0.6;">Availability, eligibility, benefits, and savings may vary.</p>
+    </footer>
+</body>
+</html>
