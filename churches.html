@@ -35,7 +35,7 @@
         .section h2 { font-size:2em; color:var(--navy); margin-bottom:16px; text-align:center; font-weight:600; }
         .section-navy h2 { color:#fff; text-align:center; font-size:2em; margin-bottom:16px; }
         .section h3 { font-size:1.3em; color:var(--navy); margin-bottom:10px; }
-        .section-navy h3 { color:var(--gold); }
+        .section-navy h3 { color:#F5C842; }
         .section .subtitle { text-align:center; max-width:750px; margin:0 auto 40px; color:var(--text-light); font-size:1.02em; }
         .section-navy .subtitle { color:rgba(255,255,255,0.85); text-align:center; max-width:750px; margin:0 auto 40px; }
 
@@ -63,7 +63,7 @@
         /* Three Impacts */
         .impact-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; margin-top:40px; }
         .impact-card { background:rgba(255,255,255,0.06); border-radius:16px; padding:36px 28px; text-align:center; border:1px solid rgba(255,255,255,0.1); }
-        .impact-card h3 { color:var(--gold); font-size:1.3em; margin-bottom:8px; }
+        .impact-card h3 { color:#F5C842; font-size:1.3em; margin-bottom:8px; }
         .impact-card .tagline { color:var(--teal); font-weight:600; font-size:0.9em; margin-bottom:12px; }
         .impact-card p { color:rgba(255,255,255,0.85); font-size:0.93em; }
 
@@ -94,18 +94,20 @@
         .final-cta h2 { color:#fff; font-size:2.2em; margin-bottom:24px; }
         .final-cta .creates-list { font-family:'Cormorant Garamond',serif; font-size:1.3em; line-height:2.2; opacity:0.9; margin-bottom:20px; }
         .final-cta .creates-list .hope { color:var(--teal); font-weight:700; }
-        .final-cta h3 { color:var(--gold); font-size:1.4em; margin-bottom:16px; }
+        .final-cta h3 { color:#F5C842; font-size:1.4em; margin-bottom:16px; }
         .final-cta p { color:rgba(255,255,255,0.85); font-size:1em; margin-bottom:28px; }
         .final-cta .btn-gold { display:inline-block; padding:16px 40px; background:var(--gold); color:var(--navy); border-radius:8px; font-weight:700; font-size:1.05em; box-shadow:0 2px 12px rgba(232,179,35,0.3); }
         .final-cta .btn-gold:hover { background:#d4a017; }
 
         /* Footer */
-        .footer { background:var(--navy); color:rgba(255,255,255,0.7); padding:40px 24px; text-align:center; font-size:0.85em; border-top:1px solid rgba(255,255,255,0.1); }
-        .footer a { color:var(--gold); }
-        .footer .tagline { font-style:italic; margin-top:8px; font-size:0.9em; }
-
         /* Responsive */
         @media (max-width:768px) {
+            .nav-toggle { display:block; }
+            .nav-links { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; flex-direction:column; padding:20px 24px; gap:16px; box-shadow:0 8px 24px rgba(0,0,0,0.1); border-bottom:2px solid var(--teal); }
+            .nav-links.nav-open { display:flex; }
+            .nav-links a { font-size:1em; padding:8px 0; }
+            .nav-links a.nav-btn { text-align:center; margin-top:8px; }
+
             .header { padding:14px 16px; flex-wrap:wrap; gap:10px; }
             .nav-links { gap:12px; flex-wrap:wrap; font-size:0.85em; }
             .page-hero h1 { font-size:2em; }
@@ -116,6 +118,26 @@
             .step { grid-template-columns:50px 1fr; gap:14px; }
             .healthcare-box { padding:28px 20px; }
         }
+
+        /* Hamburger toggle */
+        .nav-toggle { display:none; background:none; border:none; cursor:pointer; padding:8px; z-index:200; }
+        .nav-toggle span { display:block; width:24px; height:2px; background:var(--navy); margin:5px 0; transition:all 0.3s ease; border-radius:2px; }
+        .nav-toggle.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+        .nav-toggle.active span:nth-child(2) { opacity:0; }
+        .nav-toggle.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+        /* Fade-in animation */
+        .fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity:1; transform:translateY(0); }
+
+        /* Full footer */
+        .footer { background:var(--navy); color:rgba(255,255,255,0.7); padding:50px 24px 30px; }
+        .footer-content { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:40px; }
+        .footer h4 { color:#F5C842; margin-bottom:14px; font-family:'Lato',sans-serif; font-weight:600; font-size:0.95em; }
+        .footer p { font-size:0.88em; margin-bottom:4px; }
+        .footer a { color:rgba(255,255,255,0.7); display:block; margin-bottom:6px; font-size:0.88em; }
+        .footer a:hover { color:var(--teal); }
+        .footer-bottom { max-width:1000px; margin:24px auto 0; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); font-size:0.78em; color:rgba(255,255,255,0.5); text-align:center; line-height:1.6; }
+        .footer-disclaimer { max-width:800px; margin:16px auto 0; font-size:0.75em; color:rgba(255,255,255,0.4); text-align:center; line-height:1.5; }
     </style>
 </head>
 <body>
@@ -135,7 +157,7 @@
     </header>
 
     <!-- Hero -->
-    <section class="page-hero">
+    <section class="page-hero fade-in">
         <h1>Church Partnerships</h1>
         <p><strong>Stronger Churches. Healthier Families. Greater Community Impact.</strong></p>
         <p style="margin-top:20px;">Pathways Charitable Foundation partners with churches and faith-based organizations to create sustainable pathways to healthcare, wellness resources, and support for families&mdash;while helping churches raise funds to further their own mission.</p>
@@ -143,7 +165,7 @@
     </section>
 
     <!-- More Than a Fundraiser -->
-    <section class="section purpose-section">
+    <section class="section fade-in purpose-section">
         <h2>More Than a Fundraiser</h2>
         <h3 style="text-align:center; color:var(--teal); margin-bottom:24px;">A Partnership With Purpose.</h3>
         <p>Churches have always been a place where families turn during life&rsquo;s most important moments.</p>
@@ -169,7 +191,7 @@
     </section>
 
     <!-- How The Partnership Works -->
-    <section class="section section-gray" style="max-width:100%; padding:80px 24px;">
+    <section class="section fade-in section-gray" style="max-width:100%; padding:80px 24px;">
         <div style="max-width:950px; margin:0 auto;">
             <h2>How The Partnership Works</h2>
             <div class="steps-grid">
@@ -221,7 +243,7 @@
     </section>
 
     <!-- Three Levels of Impact -->
-    <section class="section-navy">
+    <section class="section fade-in-navy">
         <div class="inner">
             <h2>One Partnership. Three Levels of Impact.</h2>
             <div class="impact-grid">
@@ -245,7 +267,7 @@
     </section>
 
     <!-- Community Health & Wellness Days -->
-    <section class="wellness-section">
+    <section class="wellness-section fade-in">
         <div class="inner">
             <h2>Community Health &amp; Wellness Days</h2>
             <h3>Bring Pathways Into Your Church.</h3>
@@ -264,7 +286,7 @@
     </section>
 
     <!-- The Healthcare Connection -->
-    <section class="section">
+    <section class="section fade-in">
         <h2>The Healthcare Connection</h2>
         <p class="subtitle">Helping Families Find Another Way to Access Care.</p>
         <div class="healthcare-box">
@@ -277,7 +299,7 @@
     </section>
 
     <!-- Help Us Create Pathways -->
-    <section class="section section-gray help-section" style="max-width:100%; padding:80px 24px;">
+    <section class="section fade-in section-gray help-section" style="max-width:100%; padding:80px 24px;">
         <div style="max-width:750px; margin:0 auto;">
             <h2>Help Us Create Pathways for Families in Need</h2>
             <p>Some families simply need someone to show them where to turn.</p>
@@ -288,7 +310,7 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="final-cta">
+    <section class="final-cta fade-in">
         <div class="inner">
             <h2>Your Church Can Become That Connection.</h2>
             <p>Join Pathways Charitable Foundation in creating a partnership where fundraising creates more than dollars.</p>
@@ -305,11 +327,48 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <p><strong>Pathways Charitable Foundation</strong></p>
-        <p class="tagline">Every Gift Creates Another Pathway.</p>
-        <p style="margin-top:10px;"><a href="index.html">PathwaysCreatesHope.org</a></p>
-        <p style="margin-top:12px; font-size:0.8em; opacity:0.6;">Availability, eligibility, benefits, and savings may vary.</p>
+        <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h4>Pathways Charitable Foundation</h4>
+                <p style="font-style:italic;">Every Gift Creates Another Pathway.</p>
+                <p>Helping individuals and families discover pathways to affordable healthcare, education, support, and hope.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="how-we-help.html">How We Help</a>
+                <a href="churches.html">Church Partnerships</a>
+                <a href="connectors.html">Connectors</a>
+                <a href="get-help.html">Get Help</a>
+                <a href="give-hope.html">Give Hope</a>
+                <a href="partner.html">Become a Pathway Partner</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div>
+                <h4>Healthcare Resources</h4>
+                <a href="https://rxchekr.com">RxChekr Prescription Savings</a>
+                <a href="how-we-help.html">Healthcare Education</a>
+                <a href="how-we-help.html">Community Resources</a>
+            </div>
+            <div>
+                <h4>Connect</h4>
+                <p>&#x1F4DE; 214-983-6233</p>
+                <p>&#x2709;&#xFE0F; info@pathwayscreateshope.org</p>
+                <div style="margin-top:16px;">
+                    <a href="give-hope.html" class="btn-gold" style="padding:10px 20px; font-size:0.85em;">Give Hope</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Pathways Charitable Foundation. All rights reserved.<br>
+            <a href="#" style="display:inline;">Privacy Policy</a> | <a href="#" style="display:inline;">Terms of Use</a> | <a href="#" style="display:inline;">Accessibility</a> | <a href="#" style="display:inline;">Disclosures</a>
+        </div>
+        <div class="footer-disclaimer">
+            Pathways Charitable Foundation provides general educational information, resource navigation, and referrals. Pathways does not provide medical advice, diagnosis, treatment, prescriptions, health insurance, legal advice, financial advice, or emergency services. Information shared by Pathways is not a substitute for advice from a qualified healthcare professional. Programs, pricing, discounts, eligibility requirements, providers, and resources may change without notice. Availability and eligibility are not guaranteed. For a medical emergency, call 911 or your local emergency number.
+        </div>
     </footer>
+    <script src="static/site.js"></script>
 </body>
 </html>

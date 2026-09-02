@@ -46,7 +46,7 @@
         .philosophy-section h2 { color:#fff; margin-bottom:12px; font-size:2em; }
         .philosophy-section .intro { opacity:0.85; margin-bottom:32px; font-size:1.02em; }
         .philosophy-list { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; max-width:800px; margin:0 auto 20px; }
-        .philosophy-item { background:rgba(255,255,255,0.08); padding:14px 24px; border-radius:10px; border-left:3px solid var(--gold); font-size:0.95em; }
+        .philosophy-item { background:rgba(255,255,255,0.08); padding:14px 24px; border-radius:10px; border-left:3px solid #F5C842; font-size:0.95em; }
         .philosophy-note { margin-top:20px; font-size:0.9em; opacity:0.7; font-style:italic; }
         .resources-list { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:10px; max-width:700px; margin:0 auto 20px; }
         .resources-list li { list-style:none; padding:12px 18px; background:#fff; border-radius:10px; font-weight:500; font-size:0.93em; box-shadow:0 1px 4px rgba(0,0,0,0.04); }
@@ -57,7 +57,7 @@
         .rxchekr-section p { max-width:600px; margin:0 auto 24px; color:var(--text-light); }
         .rxchekr-section .small { font-size:0.85em; color:#999; margin-top:16px; }
         .impact-section { background:var(--navy); padding:80px 24px; text-align:center; color:#fff; }
-        .impact-section h2 { color:var(--gold); font-size:2em; margin-bottom:24px; }
+        .impact-section h2 { color:#F5C842; font-size:2em; margin-bottom:24px; }
         .impact-section .list { font-family:'Cormorant Garamond',serif; font-size:1.3em; line-height:2.2; opacity:0.9; }
         .impact-section .list .hope { color:var(--teal); font-weight:700; }
         .impact-section .supporting { margin-top:20px; font-size:0.95em; opacity:0.8; max-width:600px; margin-left:auto; margin-right:auto; }
@@ -70,13 +70,29 @@
         .closing { text-align:center; padding:60px 24px; font-family:'Cormorant Garamond',serif; font-size:1.4em; color:var(--navy); font-weight:600; font-style:italic; }
         .footer { background:var(--navy); color:rgba(255,255,255,0.7); padding:50px 24px 30px; }
         .footer-content { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:40px; }
-        .footer h4 { color:var(--gold); margin-bottom:14px; font-family:'Lato',sans-serif; font-weight:600; font-size:0.95em; }
+        .footer h4 { color:#F5C842; margin-bottom:14px; font-family:'Lato',sans-serif; font-weight:600; font-size:0.95em; }
         .footer p { font-size:0.88em; margin-bottom:4px; }
         .footer a { color:rgba(255,255,255,0.7); display:block; margin-bottom:6px; font-size:0.88em; }
         .footer a:hover { color:var(--teal); }
         .footer-bottom { max-width:1000px; margin:24px auto 0; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); font-size:0.78em; color:rgba(255,255,255,0.5); text-align:center; line-height:1.6; }
         .footer-disclaimer { max-width:800px; margin:16px auto 0; font-size:0.75em; color:rgba(255,255,255,0.4); text-align:center; line-height:1.5; }
-        @media (max-width:768px) { .header { padding:14px 16px; flex-wrap:wrap; gap:12px; } .nav-links { gap:14px; flex-wrap:wrap; font-size:0.85em; } .hero h1 { font-size:2em; } .hero { padding:60px 16px 50px; } .section { padding:50px 16px; } .cta-split { grid-template-columns:1fr; } }
+        @media (max-width:768px) {
+            .nav-toggle { display:block; }
+            .nav-links { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; flex-direction:column; padding:20px 24px; gap:16px; box-shadow:0 8px 24px rgba(0,0,0,0.1); border-bottom:2px solid var(--teal); }
+            .nav-links.nav-open { display:flex; }
+            .nav-links a { font-size:1em; padding:8px 0; }
+            .nav-links a.nav-btn { text-align:center; margin-top:8px; }
+ .header { padding:14px 16px; flex-wrap:wrap; gap:12px; } .nav-links { gap:14px; flex-wrap:wrap; font-size:0.85em; } .hero h1 { font-size:2em; } .hero { padding:60px 16px 50px; } .section { padding:50px 16px; } .cta-split { grid-template-columns:1fr; } }
+
+        /* Hamburger toggle */
+        .nav-toggle { display:none; background:none; border:none; cursor:pointer; padding:8px; z-index:200; }
+        .nav-toggle span { display:block; width:24px; height:2px; background:var(--navy); margin:5px 0; transition:all 0.3s ease; border-radius:2px; }
+        .nav-toggle.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+        .nav-toggle.active span:nth-child(2) { opacity:0; }
+        .nav-toggle.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+        /* Fade-in animation */
+        .fade-in { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity:1; transform:translateY(0); }
     </style>
 </head>
 <body>
@@ -107,7 +123,7 @@
     </section>
 
     <!-- Creating Pathways Forward -->
-    <section class="section">
+    <section class="section fade-in">
         <h2>Creating Pathways Forward</h2>
         <p class="subtitle">Every person's journey is different. Some people are searching for affordable medications. Others need access to healthcare services, educational resources, or someone who will simply listen.</p>
         <p style="text-align:center; max-width:700px; margin:0 auto 16px; color:var(--text-light);">Pathways Charitable Foundation exists to help individuals and families move forward with dignity, compassion, and hope.</p>
@@ -115,13 +131,13 @@
     </section>
 
     <!-- Mission -->
-    <section class="section section-gray" style="text-align:center;">
+    <section class="section fade-in section-gray" style="text-align:center;">
         <h2>Our Mission</h2>
         <p class="subtitle">Our mission is to create pathways to affordable healthcare, education, support, and hope for individuals and families in need.</p>
     </section>
 
     <!-- Four Pathways -->
-    <section class="section">
+    <section class="section fade-in">
         <h2>Our Four Pathways</h2>
         <div class="pathways-grid">
             <div class="pathway-card">
@@ -144,7 +160,7 @@
     </section>
 
     <!-- Philosophy -->
-    <section class="philosophy-section">
+    <section class="philosophy-section fade-in">
         <h2>Our Philosophy</h2>
         <p class="intro">Everything we do begins with the person in front of us.</p>
         <div class="philosophy-list">
@@ -157,7 +173,7 @@
     </section>
 
     <!-- How We Help -->
-    <section class="section">
+    <section class="section fade-in">
         <h2>How We Help</h2>
         <p class="subtitle">Healthcare challenges rarely have one simple solution. That is why we help people explore a variety of resources that may include:</p>
         <ul class="resources-list">
@@ -179,7 +195,7 @@
     </section>
 
     <!-- RxChekr -->
-    <section class="rxchekr-section">
+    <section class="rxchekr-section fade-in">
         <h2>Could You Be Paying Less for Your Prescriptions?</h2>
         <p>RxChekr is a prescription savings resource that helps individuals compare available discount options.</p>
         <p style="color:var(--text-light); max-width:600px; margin:0 auto 28px; font-size:0.95em;">It is one of the tools Pathways may use to help people explore potential savings on eligible medications.</p>
@@ -187,7 +203,7 @@
     </section>
 
     <!-- Impact -->
-    <section class="impact-section">
+    <section class="impact-section fade-in">
         <h2>Every Gift Creates Another Pathway</h2>
         <p style="opacity:0.85; margin-bottom:20px;">Because every gift really does create another pathway&hellip;</p>
         <div class="list">
@@ -204,14 +220,14 @@
     </section>
 
     <!-- Need Help CTA -->
-    <section class="section" style="text-align:center;">
+    <section class="section fade-in" style="text-align:center;">
         <h2>Need Help?</h2>
         <p class="subtitle">You do not have to figure everything out alone. Tell us what you are facing, and we will listen, help you understand possible options, and guide you toward appropriate resources whenever possible.</p>
         <a href="get-help.html" class="btn-gold">Request Assistance</a>
     </section>
 
     <!-- Closing -->
-    <section class="closing">
+    <section class="closing fade-in">
         Together, we can help more people discover that there is still a pathway forward.
     </section>
 
@@ -258,5 +274,6 @@
             Pathways Charitable Foundation provides general educational information, resource navigation, and referrals. Pathways does not provide medical advice, diagnosis, treatment, prescriptions, health insurance, legal advice, financial advice, or emergency services. Information shared by Pathways is not a substitute for advice from a qualified healthcare professional. Programs, pricing, discounts, eligibility requirements, providers, and resources may change without notice. Availability and eligibility are not guaranteed. For a medical emergency, call 911 or your local emergency number.
         </div>
     </footer>
+    <script src="static/site.js"></script>
 </body>
 </html>
